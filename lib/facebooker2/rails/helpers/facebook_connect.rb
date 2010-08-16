@@ -23,13 +23,13 @@ module Facebooker2
 
           text = options.delete(:text)
           
-          content_tag("fb:login-button",text,options.merge(:onlogin=>js))
+          content_tag("fb:login-button",text,options.merge(:onlogin=>"#{js}"))
         end
         
         def fb_login(options = {},&proc)
            js = capture(&proc)
            text = options.delete(:text)
-           concat(content_tag("fb:login-button",text,options.merge(:onlogin=>js)))
+           concat(content_tag("fb:login-button",text,options.merge(:onlogin=>"#{js}")))
         end
         
         #
